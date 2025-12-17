@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Demo de Concurrencia{% endblock %}
+{% block content %}
+<section class="card">
+    <h2>Resultado de la Demo de Concurrencia</h2>
+    <p>
+        Se crearon 10 hilos (5 de retiro y 5 de depósito) que trabajaron sobre la misma cuenta
+        protegida con un <strong>Lock</strong>.
+    </p>
+    <p><strong>Saldo final protegido:</strong> $ {{ "%.2f"|format(saldo) }}</p>
+    <p>
+        Si no usáramos sincronización, el saldo podría quedar inconsistente por condiciones de carrera.
+        Aquí demostramos cómo la sincronización evita ese problema.
+    </p>
+    <a class="btn-secondary" href="{{ url_for('dashboard') }}">Volver al panel</a>
+{% endblock %}
+
+

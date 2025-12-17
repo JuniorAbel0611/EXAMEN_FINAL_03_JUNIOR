@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{% block title %}Sistema Billetera{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-title">SISTEMA_BILLETERA</h1>
+            <nav class="site-nav">
+                {% if session.usuario %}
+                    <span class="nav-user">Hola, {{ session.usuario }}</span>
+                    <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    <a class="nav-link" href="{{ url_for('logout') }}">Salir</a>
+                {% else %}
+                    <a class="nav-link" href="{{ url_for('login') }}">Iniciar sesión</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=false) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for m in messages %}
+                        <div class="flash-message">{{ m }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Sistema Billetera{% endblock %}
+{% block content %}
+<h2>Dashboard - Tablas en la Base de Datos</h2>
+
+<section class="table-section">
+    <h3>Usuarios</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th><th>Usuario</th><th>Estado</th><th>Fecha Creación</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in usuarios %}
+            <tr>
+                <td>{{ u.id_usuario }}</td>
+                <td>{{ u.username }}</td>
+                <td>{{ u.estado }}</td>
+                <td>{{ u.fecha_creacion }}</td>
+            </tr>
+            {% endfor %}
+            {% if usuarios|length == 0 %}
+            <tr><td colspan="4">No hay usuarios.</td></tr>
+            {% endif %}
+        </tbody>
+    </table>
+</section>
+
+<section class="table-section">
+    <h3>Cuentas</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th><th>ID Usuario</th><th>Saldo</th><th>Moneda</th><th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in cuentas %}
+            <tr>
+                <td>{{ c.id_cuenta }}</td>
+                <td>{{ c.id_usuario }}</td>
+                <td>{{ c.saldo }}</td>
+                <td>{{ c.moneda }}</td>
+                <td>{{ c.estado }}</td>
+            </tr>
+            {% endfor %}
+            {% if cuentas|length == 0 %}
+            <tr><td colspan="5">No hay cuentas.</td></tr>
+            {% endif %}
+        </tbody>
+    </table>
+</section>
+
+<section class="table-section">
+    <h3>Transacciones</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th><th>ID Cuenta</th><th>Tipo</th><th>Monto</th><th>Fecha</th><th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in transacciones %}
+            <tr>
+                <td>{{ t.id_transaccion }}</td>
+                <td>{{ t.id_cuenta }}</td>
+                <td>{{ t.tipo_movimiento }}</td>
+                <td>{{ t.monto }}</td>
+                <td>{{ t.fecha }}</td>
+                <td>{{ t.estado }}</td>
+            </tr>
+            {% endfor %}
+            {% if transacciones|length == 0 %}
+            <tr><td colspan="6">No hay transacciones.</td></tr>
+            {% endif %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

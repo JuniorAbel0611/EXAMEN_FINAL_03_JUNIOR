@@ -1,0 +1,17 @@
+/* Copia o adapta tu estilo existente. Aquí un estilo mínimo */
+* { box-sizing: border-box; font-family: Arial, sans-serif; }
+.container { max-width: 1100px; margin: 20px auto; padding: 0 12px; }
+.site-header { background:#2c3e50; color:white; padding:12px 0; margin-bottom:18px; }
+.site-title { display:inline-block; margin-left:12px; }
+.site-nav { float:right; margin-right:12px; }
+.site-nav .nav-link { color:white; margin-left:10px; text-decoration:none; }
+.form-container { background:#fff; padding:20px; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,0.08); width:420px; margin:40px auto; }
+.form-group { margin-bottom:12px; }
+.form-group input { width:100%; padding:8px; border:1px solid #ddd; border-radius:4px; }
+.btn { padding:8px 14px; border:none; border-radius:4px; cursor:pointer; }
+.btn-primary { background:#3498db; color:#fff; }
+.table-section { margin-top:18px; background:#fff; padding:12px; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,0.04); }
+table { width:100%; border-collapse:collapse; margin-top:8px; }
+table th, table td { padding:8px 10px; border-bottom:1px solid #eee; text-align:left; }
+.flash-messages { margin: 8px 0; }
+.flash-message { background:#f39c12; color:#fff; padding:8px; border-radius:4px; margin-bottom:6px; display:inline-block; }
